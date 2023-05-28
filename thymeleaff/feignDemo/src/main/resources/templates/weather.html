@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Hava Durumu Ara</h1>
+    <form class="mt-4" th:action="@{/weather}" method="post">
+        <div class="form-group">
+            <label for="cityName">Şehir İsmi:</label>
+            <input type="text" class="form-control" id="cityName" name="cityName" required>
+        </div>
+        <div class="form-group">
+            <label for="metric">Sıcaklık Tipi:</label>
+            <input type="text" class="form-control" id="metric" name="metric" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ara</button>
+    </form>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

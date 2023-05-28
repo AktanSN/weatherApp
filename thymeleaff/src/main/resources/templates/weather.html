@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Information</title>
+</head>
+<body>
+<h1>Weather Information</h1>
+<p th:text="'City: ' + ${weather.name}"></p>
+<p th:text="'Temperature: ' + ${weather.temp}"></p>
+<p th:text="'Humidity: ' + ${weather.humidity}"></p>
+<p th:text="'Wind Speed: ' + ${weather.windSpeed}"></p>
+<p th:text="'Weather Description: ' + ${weather.description}"></p>
+<p th:text="'Weather Icon: ' + ${weather.icon}"></p>
+
+
+
+</body>
+</html>

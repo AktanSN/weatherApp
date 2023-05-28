@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Hava Durumu Sonuçları</h1>
+    <div class="my-4">
+        <h2>Şehir: <span class="font-weight-bold text-primary" th:text="${cityName}"></span></h2>
+        <h2>Sıcaklık Tipi: <span class="font-weight-bold text-primary" th:text="${metric}"></span></h2>
+    </div>
+
+    <div th:if="${weatherData}">
+        <h2>Hava Durumu: <span class="font-weight-bold text-primary" th:text="${weatherData.weather[0].main}"></span></h2>
+        <h2>Hava Durumu Açıklama: <span class="font-weight-bold text-primary" th:text="${weatherData.weather[0].description}"></span></h2>
+        <h2>Sıcaklık: <span class="font-weight-bold text-primary" th:text="${weatherData.main.temp}"></span></h2>
+        <h2>Kıyafet Önerisi: <span class="font-weight-bold text-primary" th:text="${outfitRecommendation}"></span></h2>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
