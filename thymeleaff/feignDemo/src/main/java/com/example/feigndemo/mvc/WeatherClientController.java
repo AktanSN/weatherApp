@@ -28,16 +28,5 @@ public class WeatherClientController {
         return "weather";
     }
 
-    @PostMapping("/weather")
-    public String showWeather(@RequestParam("cityName") String cityName, @RequestParam("metric") String metric, Model model) {
-        WeatherData weatherData = weatherService.getWeather(cityName, metric);
-        String outfitRecommendation = weatherService.getOutfitRecommendation(weatherData);
 
-        model.addAttribute("cityName", cityName);
-        model.addAttribute("metric", metric);
-        model.addAttribute("weatherData", weatherData);
-        model.addAttribute("outfitRecommendation", outfitRecommendation);
-
-        return "result";
-    }
 }

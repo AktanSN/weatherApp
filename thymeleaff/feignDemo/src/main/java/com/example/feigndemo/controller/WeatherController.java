@@ -23,16 +23,12 @@ public class WeatherController {
     }
 
     @GetMapping("/data")
-    public WeatherData getFromController(@RequestParam String cityName, @RequestParam String metric){
+    public WeatherData getFromController() {
 
 
-        return weatherService.getWeather(cityName,metric);
+        return weatherService.getWeather();
     }
 
-    @GetMapping("/outfit")
-    public String getOutfitRecommendation(@RequestParam String cityName, @RequestParam String metric){
-        return weatherService.getOutfitRecommendation(weatherService.getWeather(cityName,metric));
-    }
 
 
 

@@ -1,191 +1,68 @@
 package com.example.feigndemo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherData {
-    public static class Coord {
-        private double lon;
-        private double lat;
+    private String cod;
+    private float message;
+    private float cnt;
+    private ArrayList<Object> list = new ArrayList<Object>();
+    private City city;
 
-        // Getter and Setter methods
-
-        public double getLon() {
-            return lon;
-        }
-
-        public void setLon(double lon) {
-            this.lon = lon;
-        }
-
-        public double getLat() {
-            return lat;
-        }
-
-        public void setLat(double lat) {
-            this.lat = lat;
-        }
-    }
-
-    public static class Weather {
-        private int id;
-        private String main;
-        private String description;
-        private String icon;
-
-        // Getter and Setter methods
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getMain() {
-            return main;
-        }
-
-        public void setMain(String main) {
-            this.main = main;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getIcon() {
-            return icon;
-        }
-
-        public void setIcon(String icon) {
-            this.icon = icon;
-        }
-    }
-
-    public static class Main {
-        private double temp;
-        private double feels_like;
-        private double temp_min;
-        private double temp_max;
-        private int pressure;
-        private int humidity;
-
-        // Getter and Setter methods
-
-        public double getTemp() {
-            return temp;
-        }
-
-        public void setTemp(double temp) {
-            this.temp = temp;
-        }
-
-        public double getFeels_like() {
-            return feels_like;
-        }
-
-        public void setFeels_like(double feels_like) {
-            this.feels_like = feels_like;
-        }
-
-        public double getTemp_min() {
-            return temp_min;
-        }
-
-        public void setTemp_min(double temp_min) {
-            this.temp_min = temp_min;
-        }
-
-        public double getTemp_max() {
-            return temp_max;
-        }
-
-        public void setTemp_max(double temp_max) {
-            this.temp_max = temp_max;
-        }
-
-        public int getPressure() {
-            return pressure;
-        }
-
-        public void setPressure(int pressure) {
-            this.pressure = pressure;
-        }
-
-        public int getHumidity() {
-            return humidity;
-        }
-
-        public void setHumidity(int humidity) {
-            this.humidity = humidity;
-        }
-    }
-
-    public static class Wind {
-        private double speed;
-        private int deg;
-
-        // Getter and Setter methods
-
-        public double getSpeed() {
-            return speed;
-        }
-
-        public void setSpeed(double speed) {
-            this.speed = speed;
-        }
-
-        public int getDeg() {
-            return deg;
-        }
-
-        public void setDeg(int deg) {
-            this.deg = deg;
-        }
-    }
-
-    public static class Clouds {
-        private int all;
-
-        // Getter and Setter methods
-
-        public int getAll() {
-            return all;
-        }
-
-        public void setAll(int all) {
-            this.all = all;
-        }
-    }
-
-    public static class Sys {
-        private int type;
-        private int id;
+    public static class City {
+        private float id;
+        private String name;
+        private Coord coord;
         private String country;
-        private int sunrise;
-        private int sunset;
+        private float population;
+        private float timezone;
+        private float sunrise;
+        private float sunset;
 
-        // Getter and Setter methods
+        public static class Coord {
+            private float lat;
+            private float lon;
 
-        public int getType() {
-            return type;
+            public float getLat() {
+                return lat;
+            }
+
+            public void setLat(float lat) {
+                this.lat = lat;
+            }
+
+            public float getLon() {
+                return lon;
+            }
+
+            public void setLon(float lon) {
+                this.lon = lon;
+            }
         }
 
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public int getId() {
+        public float getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(float id) {
             this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Coord getCoord() {
+            return coord;
+        }
+
+        public void setCoord(Coord coord) {
+            this.coord = coord;
         }
 
         public String getCountry() {
@@ -196,140 +73,76 @@ public class WeatherData {
             this.country = country;
         }
 
-        public int getSunrise() {
+        public float getPopulation() {
+            return population;
+        }
+
+        public void setPopulation(float population) {
+            this.population = population;
+        }
+
+        public float getTimezone() {
+            return timezone;
+        }
+
+        public void setTimezone(float timezone) {
+            this.timezone = timezone;
+        }
+
+        public float getSunrise() {
             return sunrise;
         }
 
-        public void setSunrise(int sunrise) {
+        public void setSunrise(float sunrise) {
             this.sunrise = sunrise;
         }
 
-        public int getSunset() {
+        public float getSunset() {
             return sunset;
         }
 
-        public void setSunset(int sunset) {
+        public void setSunset(float sunset) {
             this.sunset = sunset;
         }
     }
 
-    private Coord coord;
-    private List<Weather> weather;
-    private String base;
-    private Main main;
-    private int visibility;
-    private Wind wind;
-    private Clouds clouds;
-    private long dt;
-    private Sys sys;
-    private int timezone;
-    private int id;
-    private String name;
-    private int cod;
-
-    // Getter and Setter methods
-
-    public Coord getCoord() {
-        return coord;
-    }
-
-    public void setCoord(Coord coord) {
-        this.coord = coord;
-    }
-
-    public List<Weather> getWeather() {
-        return weather;
-    }
-
-    public void setWeather(List<Weather> weather) {
-        this.weather = weather;
-    }
-
-    public String getBase() {
-        return base;
-    }
-
-    public void setBase(String base) {
-        this.base = base;
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public int getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(int visibility) {
-        this.visibility = visibility;
-    }
-
-    public Wind getWind() {
-        return wind;
-    }
-
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
-
-    public long getDt() {
-        return dt;
-    }
-
-    public void setDt(long dt) {
-        this.dt = dt;
-    }
-
-    public Sys getSys() {
-        return sys;
-    }
-
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
-
-    public int getTimezone() {
-        return timezone;
-    }
-
-    public void setTimezone(int timezone) {
-        this.timezone = timezone;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCod() {
+    public String getCod() {
         return cod;
     }
 
-    public void setCod(int cod) {
+    public void setCod(String cod) {
         this.cod = cod;
+    }
+
+    public float getMessage() {
+        return message;
+    }
+
+    public void setMessage(float message) {
+        this.message = message;
+    }
+
+    public float getCnt() {
+        return cnt;
+    }
+
+    public void setCnt(float cnt) {
+        this.cnt = cnt;
+    }
+
+    public ArrayList<Object> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Object> list) {
+        this.list = list;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

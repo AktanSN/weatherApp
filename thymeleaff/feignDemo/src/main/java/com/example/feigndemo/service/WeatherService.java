@@ -17,12 +17,12 @@ public class WeatherService {
         this.feignService = feignService;
     }
 
-    public WeatherData getWeather(String cityName, String metric) {
+    public WeatherData getWeather() {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            WeatherData responseData = objectMapper.readValue(feignService.weatherData(cityName,metric,ApiKey),WeatherData.class);
+            WeatherData responseData = objectMapper.readValue(feignService.weatherData(),WeatherData.class);
 
             return responseData;
         } catch (
@@ -33,19 +33,7 @@ public class WeatherService {
     }
 
 
-    public String getOutfitRecommendation(WeatherData weatherData) {
-
-        double temperature = weatherData.getMain().getTemp();
-
-        if (temperature >= 20 ) {
-            return "Hava çok sıcak, yazlık kıyafetler tercih edebilirsiniz.";
-        } else if (temperature >= 10) {
-            return "Hava ılıman, ince bir kat daha ekleyebilirsiniz.";
-        } else {
-            return "Hava serin, kalın bir kat daha giyinmeyi düşünebilirsiniz.";
-        }
-    }
-}
+  }
 
 
 

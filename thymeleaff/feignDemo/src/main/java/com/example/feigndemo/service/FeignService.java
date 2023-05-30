@@ -9,12 +9,12 @@ import java.util.List;
 
 
 
-@FeignClient(name ="deneme", url= "https://api.openweathermap.org/data/2.5/weather")
+@FeignClient(name ="deneme", url= "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=93417bebdb312b48cd949a0ff097b944")
 public interface FeignService {
 
 
     @GetMapping
-    String weatherData(@RequestParam String q, @RequestParam String units, @RequestParam String appid);
+    String weatherData();
 
 
 
